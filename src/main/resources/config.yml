@@ -1,0 +1,114 @@
+# All armor items handled by the plugin.
+# Damage modifiers are described in a different section.
+# All settings of items, except hasType, are optional.
+items:
+  # Long Fall Boots disable fall damage for anyone who is wearing it.
+  LongFallBoots: # Arbitrary item name, must be unique among other items.
+    # Required item type. Can be string id or numerical id (before 1.13).
+    hasType: LEATHER_BOOTS
+    # Required string in item display name.
+    # Color codes can be specified using either § or &.
+    nameContains: '&dLong Fall Boots'
+    # Required string in any line of item lore.
+    loreContains: '&7Something'
+    # Required leather armor color, must be quoted and represent HEX RGB color.
+    hasColor: 'ffffff'
+    # Required custom model data, since 1.14.
+    hasCustomModelData: 123
+  # ---
+  # Better Diamond Armor set
+  # It gives 5% damage protection for each worn part of the set.
+  BetterDiamondHelmet:
+    hasType: DIAMOND_HELMET
+    nameContains: '&eBetter Diamond Helmet'
+  BetterDiamondChestplate:
+    hasType: DIAMOND_CHESTPLATE
+    nameContains: '&eBetter Diamond Chestplate'
+  BetterDiamondLeggings:
+    hasType: DIAMOND_LEGGINGS
+    nameContains: '&eBetter Diamond Leggings'
+  BetterDiamondBoots:
+    hasType: DIAMOND_BOOTS
+    nameContains: '&eBetter Diamond Boots'
+  # ---
+  # Nether armor set
+  # It protects from fire-related damage when player is wearing full set.
+  NetherHelmet:
+    hasType: DIAMOND_HELMET
+    nameContains: '&6Nether Helmet'
+  NetherChestplate:
+    hasType: DIAMOND_CHESTPLATE
+    nameContains: '&6Nether Chestplate'
+  NetherLeggings:
+    hasType: DIAMOND_LEGGINGS
+    nameContains: '&6Nether Leggings'
+  NetherBoots:
+    hasType: DIAMOND_BOOTS
+    nameContains: '&6Nether Boots'
+  # ---
+  # This item blocks all damage when worn.
+  HeadOfAdmin:
+    hasType: PLAYER_HEAD
+    nameContains: "&cAdmin's head"
+
+# This section contains damage modifiers which are applied when player wears some items.
+# Damage types: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/EntityDamageEvent.DamageCause.html
+# Shortcut damage types: ALL -- all damage types, DEFAULT -- damage types which are not ignored by vanilla armor.
+modifiers:
+  LongFallBoots: # Arbitrary name.
+    # Modifier is applied only if player is wearing this item.
+    playerWearingAll: LongFallBoots
+    # Modifier is applied only when player has this permission (permission is not checked for mobs).
+    playerHasPermission: 'some.permission.to.use.boots'
+    # Damage modifiers by damage type.
+    modifyDamage:
+      # Disables fall damage completely.
+      FALL: -100%
+  # ----------
+  BetterDiamondArmor:
+    # Modifier is applied when any of the specified items is worn.
+    # It is applied independently for each matched worn item, so full set will give -20% protection.
+    playerWearingAny: [BetterDiamondHelmet, BetterDiamondChestplate, BetterDiamondLeggings, BetterDiamondBoots]
+    modifyDamage:
+      # DEFAULT is a shortcut for all damage types which are not ignored by vanilla armor.
+      DEFAULT: -5%
+  # ----------
+  NetherArmor:
+    # Modifier is applied only if player is wearing all of these items.
+    playerWearingAll: [NetherHelmet, NetherChestplate, NetherLeggings, NetherBoots]
+    modifyDamage:
+      # Disable fire tick damage (it's usually 1, so subtracting 1 gives us 0).
+      # This is an example of absolute damage modifier.
+      FIRE_TICK: -1
+      # Decrease in-fire damage by 60%.
+      FIRE: -60%
+      # Decrease in-lava damage by 40%.
+      LAVA: -40%
+  # ----------
+  HeadOfAdmin:
+    playerWearingAll: HeadOfAdmin
+    modifyDamage:
+      # ALL is shortcut for any type of damage.
+      ALL: -100%
+
+# Bonus feature: anvil renaming will be disabled for items specified here.
+# This is needed in order to not let player "break" armor item by changing its name.
+disableAnvilRenaming:
+  - LongFallBoots
+  - BetterDiamondHelmet
+  - BetterDiamondChestplate
+  - BetterDiamondLeggings
+  - BetterDiamondBoots
+  - NetherHelmet
+  - NetherChestplate
+  - NetherLeggings
+  - NetherBoots
+  - HeadOfAdmin
+
+# If true, on each damage event the plugin will explain what and why is modified.
+# Enable this if you think the plugin modifies damage in the wrong way.
+debugDamageModification: false
+
+# Switches language of the plugin.
+# Accepted values: 'en', 'ru'
+language: 'en'

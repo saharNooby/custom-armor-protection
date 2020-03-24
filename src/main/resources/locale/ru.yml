@@ -1,0 +1,15 @@
+# Общие сообщения команд.
+noPermissionsForCommand: '&c[CustomArmorProtection] Нет прав для выполнения этой команды.'
+
+# Команда give.
+mustBeAPlayer: '&c[CustomArmorProtection] Команда доступна только для игроков.'
+yourInventoryIsFull: '&c[CustomArmorProtection] Инвентарь заполнен, освободите место.'
+itemNotFound: '&c[CustomArmorProtection] Вещь не найдена, доступные вещи: %s'
+itemWasGiven: '&a[CustomArmorProtection] Вещь %s добавлена в ваш инвентарь.'
+
+# Команда reload.
+configWasReloaded: '&a[CustomArmorProtection] Конфиг перезагружен.'
+configWasNotReloaded: '&c[CustomArmorProtection] Конфиг не был перезагружен, смотрите в консоль для подробных сообщений.'
+
+# Наковальни.
+canNotRenameThisItem: '&cЭту вещь нельзя переименовать на наковальне.'

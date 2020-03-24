@@ -1,0 +1,19 @@
+name: CustomArmorProtection
+description: Custom damage modifiers for custom armor items.
+website: 'https://www.spigotmc.org/resources/customarmorprotection.76154/'
+main: me.saharnooby.plugins.customarmor.CustomArmorProtection
+version: '1.0'
+author: saharNooby
+api-version: '1.13'
+commands:
+  custom-armor-protection:
+    description: 'Command used to reload config and give items.'
+    usage: '§6[CustomArmorProtection] §e/custom-armor-protection reload§f, §e§e/custom-armor-protection give <item id in config>'
+    aliases: ['cap']
+permissions:
+  'customarmorprotection.command.main.reload':
+    description: 'Allows you to use /custom-armor-protection reload'
+    default: op
+  'customarmorprotection.command.main.give':
+    description: 'Allows you to use /custom-armor-protection give <item id>'
+    default: op

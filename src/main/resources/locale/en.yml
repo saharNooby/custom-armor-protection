@@ -1,0 +1,15 @@
+# General command messages.
+noPermissionsForCommand: '&c[CustomArmorProtection] You have no permissions to do this.'
+
+# Give command messages.
+mustBeAPlayer: '&c[CustomArmorProtection] You must be a player to do that.'
+yourInventoryIsFull: '&c[CustomArmorProtection] Your inventory is full.'
+itemNotFound: '&c[CustomArmorProtection] Item not found, available items: %s'
+itemWasGiven: '&a[CustomArmorProtection] Item %s was given to you.'
+
+# Reload command messages.
+configWasReloaded: '&a[CustomArmorProtection] Config was reloaded.'
+configWasNotReloaded: '&c[CustomArmorProtection] Config was not reloaded, see the console for error messages.'
+
+# Anvil messages.
+canNotRenameThisItem: '&cThis item can not be renamed in anvil.'
